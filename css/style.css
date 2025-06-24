@@ -1,0 +1,95 @@
+body {
+  font-family: "Roboto", "Open Sans", sans-serif;
+}
+
+.navbar {
+  background-color: #1e202b;
+}
+
+.navbar-nav .nav-link {
+  color: white;
+  font-size: 16px;
+  font-family: "Helvetica", sans-serif;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin: 5px 0;
+}
+.navbar-nav .nav-link.active {
+  color: rgb(0, 154, 216);
+  border: 1px solid rgb(0, 154, 216);
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 1rem;
+}
+
+.navbar-brand:hover {
+  color: white;
+}
+
+#main {
+  background-color: #1e202b;
+  padding-bottom: 400px;
+}
+
+.hero {
+  background-size: cover;
+  padding: 70px 0;
+  min-height: 350px;
+  background-image: url(../image/banner.png);
+}
+
+#main input {
+  background-color: #1e202b;
+  color: white;
+  border: none;
+}
+#main input::placeholder {
+  color: #505962;
+}
+
+#main button {
+  background-color: #009ad8;
+}
+
+#main div .tempreature h3:nth-of-type(1) {
+  font-size: 90px;
+}
+.card {
+  border: 0;
+}
+
+.light-card {
+  background-color: #2d303d;
+  color: white;
+}
+
+.dark-card {
+  background-color: #262936;
+  color: white;
+}
+
+.icons div {
+  background-color: #1e202b;
+  color: #009ad8;
+}
+
+#footer {
+  background-color: #262936;
+}
+
+#subscribe-input {
+  background-color: #1e202b;
+  border: 0;
+}
+#subscribe-input::placeholder {
+  color: #505962;
+}
+#footer button {
+  background-color: #009ad8;
+}
+
+#card-one-temp {
+  font-size: 72px;
+}
