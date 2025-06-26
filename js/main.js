@@ -27,27 +27,22 @@ const months = [
 ];
 const daysOfMonth = Array.from({ length: 31 }, (_, i) => i + 1);
 
-function getWeather(locationQuery) {
-  const myRequest = new XMLHttpRequest();
-  myRequest.open(
-    "GET",
-    `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${locationQuery}&days=3`
-  );
-  myRequest.send();
+async function getWeather(locationQuery) {
+  try {
+    let response = await fetch(
+      `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${locationQuery}&days=3`
+    );
+    var data = await response.JSON();
+    const date = new Date(data.location.localtime_epoch * 1000);
+    const dayIndex = date.getDay();
 
-  myRequest.addEventListener("readystatechange", function () {
-    if (myRequest.readyState === 4 && myRequest.status === 200) {
-      const data = JSON.parse(myRequest.response);
-      const date = new Date(data.location.localtime_epoch * 1000);
-      const dayIndex = date.getDay();
-
-      const cardOne = `
+    const cardOne = `
         <div class="card light-card">
           <div class="card-header d-flex justify-content-between">
             <span>${week[dayIndex]}</span>
             <span>${daysOfMonth[date.getDate() - 1]} ${
-        months[date.getMonth()]
-      }</span>
+      months[date.getMonth()]
+    }</span>
           </div>
           <div class="card-body">
             <p class="py-2">${data.location.name}</p>
@@ -64,7 +59,7 @@ function getWeather(locationQuery) {
           </div>
         </div>`;
 
-      const cardTwo = `
+    const cardTwo = `
         <div class="card text-center dark-card">
           <div class="card-header"><span>${
             week[(dayIndex + 1) % 7]
@@ -84,7 +79,7 @@ function getWeather(locationQuery) {
           </div>
         </div>`;
 
-      const cardThree = `
+    const cardThree = `
         <div class="card text-center light-card ">
           <div class="card-header"><span>${
             week[(dayIndex + 2) % 7]
@@ -104,9 +99,10 @@ function getWeather(locationQuery) {
           </div>
         </div>`;
 
-      cardGroup.innerHTML = cardOne + cardTwo + cardThree;
-    }
-  });
+    cardGroup.innerHTML = cardOne + cardTwo + cardThree;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // ✅ Try to get user location
