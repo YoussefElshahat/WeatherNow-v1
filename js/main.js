@@ -32,7 +32,8 @@ async function getWeather(locationQuery) {
     let response = await fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${locationQuery}&days=3`
     );
-    var data = await response.JSON();
+    let data = await response.json();
+
     const date = new Date(data.location.localtime_epoch * 1000);
     const dayIndex = date.getDay();
 
