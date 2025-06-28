@@ -14,7 +14,7 @@ A simple weather forecasting web app built using HTML, CSS, and JavaScript. It f
 
 ## 🧪 Demo
 
-Try it live: [https://your-github-username.github.io/WeatherNow-v1](#) _(replace with your live link if deployed)_
+Try it live: [https://YoussefElshahat.github.io/WeatherNow-v1](#) _(replace with your live link if deployed)_
 
 ## 🖼️ Screenshots
 
